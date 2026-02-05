@@ -1,0 +1,133 @@
+<div class="background">
+  <header class="header">
+    <h1>
+    Mykhailo Hrebennyk \\ Internet Hero \\
+    </h1>
+    <button class="respectButton">
+      <a href="#">
+        Why respect ME
+      </a>
+    </button>
+  </header>
+
+  <div class="main_wrapper">
+    <main class="main">
+      <div class="main_text">
+        <h2>
+          Most important facts
+        </h2>
+        <span class="main_text_decore_1">
+          <h2>
+            Most important facts
+          </h2>
+        </span>
+        <span class="main_text_decore_2">
+          <h2>
+            Most important facts
+          </h2>
+        </span>
+      </div>
+    </main>
+
+  </div>
+
+<style>
+
+  /* @media (max-width: 430px) { */
+  /*   h2 { */
+  /*  font-size: clamp(1.5rem, 4vw, 2rem);;  */
+  /*   } */
+  /* } */
+h2 {
+  margin-block: 0;
+}
+/* .main-upper { */
+/*   margin-inline: 0.5rem; */
+/*   margin-block: 1rem; */
+/*   background-color: hsl(5, 0%, 0%); */
+/* } */
+.main_wrapper {
+  flex: 1;
+  margin-top: 1rem;
+  background: linear-gradient(
+  180deg,
+  #ffffff 0%,
+  /* #e0e0e0 30%, */
+  /* #808080 60%, */
+      #000000 100px
+    );
+}
+
+.main {
+  height: 270px;
+  margin-inline: 0.5rem;
+  background: linear-gradient(
+  180deg,
+  #ffffff 0%,
+  /* #e0e0e0 30%, */
+  /* #808080 60%, */
+      #000000 100px
+    );
+}
+
+.main_text {
+  margin-inline: 1rem;
+  font-size: 1.5rem;
+  width: fit-content;
+  position: relative;
+  color: hsl(5, 0%, 100%);
+  }
+@media (max-width: 430px) {
+  .main_text {
+    font-size: clamp(1rem, 5.5vw, 1.5rem);
+  }
+  }
+  @media (max-width: 380px) {
+  .main_text {
+    font-size: clamp(1rem, 5vw, 1.5rem);
+  }
+}
+.main_text_decore_1 {
+  position: absolute;
+  width: 100%;
+  /* white-space: nowrap; */
+  top: 0;
+  right: 50%;
+  color: hsl(5, 0%, 0%);
+  transform: 
+    translateX(50%)
+    scaleY(0.8)
+    scaleX(0.985);
+  /* transform: translateY(-60); */
+}
+.main_text_decore_2 {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  right: 50%;
+  color: hsl(5, 0%, 35%);
+  transform: translateY(50%) scaleY(0.5)
+    translateX(50%)
+    scaleX(0.985);
+    ;
+  /* transform: translateY(-60); */
+}
+.header {
+  background-color: hsl(7, 51%, 84%);
+  padding-bottom: 0.5rem;
+}
+.background {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin-top: 1rem;
+}
+.respectButton{
+  display: block;
+  background-color: hsl(299, 79%, 84%);
+  padding-inline: 2rem;
+  padding-block: 1rem;
+  margin-inline: auto;
+  box-shadow: 0.5rem 0.5rem 10px hsl(299, 79%, 84%);
+}
+</style>
