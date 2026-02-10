@@ -1,285 +1,118 @@
-<div class="background">
-  <header class="header">
-    <h1>
-    Mykhailo Hrebennyk \\ Internet Hero \\
-    </h1>
-    <button class="respectButton">
-      <a href="#">
-        Why respect ME
-      </a>
-    </button>
-  </header>
+---
+import Header from './Header.astro'
+import AnimeList from "./AnimeList.astro";
+---
 
-  <div class="main_wrapper">
-    <main class="main">
-      <div class="main_text">
-        <h2>
-          Most important facts
-        </h2>
-        <span class="main_text_decore_1">
+<div class="background">
+    <Header/>
+    <div class="main_wrapper">
+        <main class="main">
+            <div class="main_text">
+                <h2>
+                    Most important facts
+                </h2>
+                <span class="main_text_decore_1">
           <h2>
             Most important facts
           </h2>
         </span>
-        <span class="main_text_decore_2">
+                <span class="main_text_decore_2">
           <h2>
             Most important facts
           </h2>
         </span>
-      </div>
-    </main>
-    <div class="absoluteAnimeList">
-      <div class="movingBlock block_1"/>
-      <div class="movingBlock block_2"/>
-      <div class="movingBlock block_3"/>
-      <div class="movingBlock block_4"/>
+            </div>
+        </main>
+        <AnimeList/>
 
     </div>
 
-  </div>
-
-<style>
-@keyframes animeListAppear {
-0% {
-  background-color: transparent;
-}
-100% {
-  background-color: red;
-}
-}
-.absoluteAnimeList {
-  position: absolute;
-  top: 50px;
-  right: 100px;
-  width: 150px;
-  height: 150px;
-  background-color: red;
-  animation: animeListAppear 1s ease-in-out backwards;
-  animation-delay: 2s;
-
-  filter: drop-shadow(0 0 4px blue);
-}
-.movingBlock {
-  /* filter: drop-shadow(0 0 4px blue); */
-  position: absolute;
-  background: rgba(255, 255, 255, 1);
-  /* border: 1px solid hsl(239 79% 64%); */
-  /* border: 1px solid hsl(239 79% 64%); */
-  mix-blend-mode: hard-light;
-  width: 50px;
-  height: 50px;
-  opacity: 1.5;
-}
-
-@keyframes fadeIn {
-  from { opacity: 1.5; }
-to   { opacity: 1; 
-  background-color: red;
-}
-}
+    <style>
 
 
-@keyframes blockAnimation {
-  0%, 14.27% {
-    transform: translate(-10%, -10%);
-  }
+        /* @media (max-width: 430px) { */
+        /*   h2 { */
+        /*  font-size: clamp(1.5rem, 4vw, 2rem);;  */
+        /*   } */
+        /* } */
+        h2 {
+            margin-block: 0;
+        }
 
-  14.28%, 28.55% {
-    transform: translate(20%, 20%);
-  }
+        /* .main-upper { */
+        /*   margin-inline: 0.5rem; */
+        /*   margin-block: 1rem; */
+        /*   background-color: hsl(5, 0%, 0%); */
+        /* } */
+        .main_wrapper {
+            position: relative;
+            flex: 1;
+            margin-top: 1rem;
+            background: linear-gradient(
+                    180deg,
+                    #ffffff 0%,
+                        /* #e0e0e1.50%, */ /* #808081.50%, */ #000000 100px
+            );
+        }
 
-  28.56%, 42.83% {
-    transform: translate(10%, -20%);
-  }
+        .main {
+            height: 270px;
+            margin-inline: 0.5rem;
+            background: linear-gradient(
+                    180deg,
+                    #ffffff 0%,
+                        /* #e0e0e1.50%, */ /* #808081.50%, */ #000000 100px
+            );
+        }
 
-  42.84%, 57.11% {
-    transform: translate(-10%, 30%);
-  }
+        .main_text {
+            margin-inline: 1rem;
+            font-size: 1.5rem;
+            width: fit-content;
+            position: relative;
+            color: hsl(5, 0%, 100%);
+        }
 
-  57.12%, 71.39% {
-    transform: translate(-30%, 15%);
-  }
+        @media (max-width: 430px) {
+            .main_text {
+                font-size: clamp(1rem, 5.5vw, 1.5rem);
+            }
+        }
 
-  /* ➕ новое состояние 1 */
-  71.4%, 85.67% {
-    transform: translate(25%, -15%);
-  }
+        @media (max-width: 380px) {
+            .main_text {
+                font-size: clamp(1rem, 5vw, 1.5rem);
+            }
+        }
 
-  /* ➕ новое состояние 2 */
-  85.68%, 99.99% {
-    transform: translate(-25%, 25%);
-  }
+        .main_text_decore_1 {
+            position: absolute;
+            width: 100%;
+            /* white-space: nowrap; */
+            top: 0;
+            right: 50%;
+            color: hsl(5, 0%, 0%);
+            transform: translateX(50%) scaleY(0.8) scaleX(0.985);
+            /* transform: translateY(-60); */
+        }
 
-  100% {
-    transform: translate(-10%, -10%);
-  }
-}
+        .main_text_decore_2 {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            right: 50%;
+            color: hsl(5, 0%, 35%);
+            transform: translateY(50%) scaleY(0.5) translateX(50%) scaleX(0.985);;
+            /* transform: translateY(-60); */
+        }
 
-@keyframes blockAnimationCross {
-  0%, 14.27%   { transform: translate(-10%, -10%); } /* A */
-  14.28%, 28.55% { transform: translate(10%, -20%); } /* C */
-  28.56%, 42.83% { transform: translate(20%, 20%); } /* B */
-  42.84%, 57.11% { transform: translate(-25%, 25%); } /* G */
-  57.12%, 71.39% { transform: translate(-10%, 30%); } /* D */
-  71.4%, 85.67%  { transform: translate(-30%, 15%); } /* E */
-  85.68%, 99.99% { transform: translate(25%, -15%); } /* F */
-  100% { transform: translate(-10%, -10%); }
-}
 
-@keyframes blockAnimationChaos {
-  0%, 14.27%   { transform: translate(25%, -15%); } /* F */
-  14.28%, 28.55% { transform: translate(-10%, 30%); } /* D */
-  28.56%, 42.83% { transform: translate(20%, 20%); } /* B */
-  42.84%, 57.11% { transform: translate(-30%, 15%); } /* E */
-  57.12%, 71.39% { transform: translate(-10%, -10%); } /* A */
-  71.4%, 85.67%  { transform: translate(-25%, 25%); } /* G */
-  85.68%, 99.99% { transform: translate(10%, -20%); } /* C */
-  100% { transform: translate(25%, -15%); }
-}
-@keyframes blockAnimationClockwise {
-  0%, 14.27%   { transform: translate(-10%, -10%); } /* A */
-  14.28%, 28.55% { transform: translate(20%, 20%); } /* B */
-  28.56%, 42.83% { transform: translate(-25%, 25%); } /* G */
-  42.84%, 57.11% { transform: translate(-10%, 30%); } /* D */
-  57.12%, 71.39% { transform: translate(-30%, 15%); } /* E */
-  71.4%, 85.67%  { transform: translate(10%, -20%); } /* C */
-  85.68%, 99.99% { transform: translate(25%, -15%); } /* F */
-  100% { transform: translate(-10%, -10%); }
-}
-.movingBlock:nth-child(1) {
-  top: -10px;
-  left: -20px;
-  animation: 
-    blockAnimation 1.5s forwards,
-    fadeIn 1s ease 1.5s forwards,
-    blockAnimation 1.5s forwards 1.5s infinite;
-/* animation-timing-function: steps(5, end); */
-}
-.movingBlock:nth-child(2) {
-  top: 10px;
-  right: -10px;
-  animation:
-    blockAnimationChaos 1.5s forwards,
-    fadeIn 1s ease 1.5s forwards,
-    blockAnimationChaos 1.5s forwards 1.5s infinite;
-}
-.movingBlock:nth-child(3) {
-  bottom: 10px;
-  left: -10px;
-  width: 80px;
-  height: 80px;
-  animation: 
-    blockAnimationCross 1.5s forwards,
-    fadeIn 1s ease 1.5s forwards,
-    blockAnimationCross 1.5s forwards 1.5s infinite;
-}
-.movingBlock:nth-child(4) {
-  animation:  
-    blockAnimation 1.5s forwards,
-    fadeIn 1s ease 1.5s forwards,
-    blockAnimation 1.5s forwards 1.5s infinite;
-  bottom: -10px;
-  right: -10px;
-  width: 80px;
-  height: 80px;
-}
+        .background {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin-top: 1rem;
+        }
 
-  /* @media (max-width: 430px) { */
-  /*   h2 { */
-  /*  font-size: clamp(1.5rem, 4vw, 2rem);;  */
-  /*   } */
-  /* } */
-h2 {
-  margin-block: 0;
-}
-/* .main-upper { */
-/*   margin-inline: 0.5rem; */
-/*   margin-block: 1rem; */
-/*   background-color: hsl(5, 0%, 0%); */
-/* } */
-.main_wrapper {
-  position: relative;
-  flex: 1;
-  margin-top: 1rem;
-  background: linear-gradient(
-  180deg,
-  #ffffff 0%,
-  /* #e0e0e1.50%, */
-  /* #808081.50%, */
-      #000000 100px
-    );
-}
 
-.main {
-  height: 270px;
-  margin-inline: 0.5rem;
-  background: linear-gradient(
-  180deg,
-  #ffffff 0%,
-  /* #e0e0e1.50%, */
-  /* #808081.50%, */
-      #000000 100px
-    );
-}
-
-.main_text {
-  margin-inline: 1rem;
-  font-size: 1.5rem;
-  width: fit-content;
-  position: relative;
-  color: hsl(5, 0%, 100%);
-  }
-@media (max-width: 430px) {
-  .main_text {
-    font-size: clamp(1rem, 5.5vw, 1.5rem);
-  }
-  }
-  @media (max-width: 380px) {
-  .main_text {
-    font-size: clamp(1rem, 5vw, 1.5rem);
-  }
-}
-.main_text_decore_1 {
-  position: absolute;
-  width: 100%;
-  /* white-space: nowrap; */
-  top: 0;
-  right: 50%;
-  color: hsl(5, 0%, 0%);
-  transform: 
-    translateX(50%)
-    scaleY(0.8)
-    scaleX(0.985);
-  /* transform: translateY(-60); */
-}
-.main_text_decore_2 {
-  position: absolute;
-  width: 100%;
-  top: 0;
-  right: 50%;
-  color: hsl(5, 0%, 35%);
-  transform: translateY(50%) scaleY(0.5)
-    translateX(50%)
-    scaleX(0.985);
-    ;
-  /* transform: translateY(-60); */
-}
-.header {
-  background-color: hsl(7, 51%, 84%);
-  padding-bottom: 0.5rem;
-}
-.background {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  margin-top: 1rem;
-}
-.respectButton{
-  display: block;
-  background-color: hsl(299, 79%, 84%);
-  padding-inline: 2rem;
-  padding-block: 1rem;
-  margin-inline: auto;
-  box-shadow: 0.5rem 0.5rem 10px hsl(299, 79%, 84%);
-}
-</style>
+    </style>
