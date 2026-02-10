@@ -1,118 +1,35 @@
 ---
-import Header from './Header.astro'
-import AnimeList from "./AnimeList.astro";
+import Header from "./Header.astro";
+import Main from "./Main.astro";
 ---
 
 <div class="background">
-    <Header/>
-    <div class="main_wrapper">
-        <main class="main">
-            <div class="main_text">
-                <h2>
-                    Most important facts
-                </h2>
-                <span class="main_text_decore_1">
-          <h2>
-            Most important facts
-          </h2>
-        </span>
-                <span class="main_text_decore_2">
-          <h2>
-            Most important facts
-          </h2>
-        </span>
-            </div>
-        </main>
-        <AnimeList/>
+  <Header />
+  <Main />
+</div>
 
-    </div>
-
-    <style>
-
-
-        /* @media (max-width: 430px) { */
-        /*   h2 { */
-        /*  font-size: clamp(1.5rem, 4vw, 2rem);;  */
-        /*   } */
-        /* } */
-        h2 {
-            margin-block: 0;
-        }
-
-        /* .main-upper { */
-        /*   margin-inline: 0.5rem; */
-        /*   margin-block: 1rem; */
-        /*   background-color: hsl(5, 0%, 0%); */
-        /* } */
-        .main_wrapper {
-            position: relative;
-            flex: 1;
-            margin-top: 1rem;
-            background: linear-gradient(
-                    180deg,
-                    #ffffff 0%,
-                        /* #e0e0e1.50%, */ /* #808081.50%, */ #000000 100px
-            );
-        }
-
-        .main {
-            height: 270px;
-            margin-inline: 0.5rem;
-            background: linear-gradient(
-                    180deg,
-                    #ffffff 0%,
-                        /* #e0e0e1.50%, */ /* #808081.50%, */ #000000 100px
-            );
-        }
-
-        .main_text {
-            margin-inline: 1rem;
-            font-size: 1.5rem;
-            width: fit-content;
-            position: relative;
-            color: hsl(5, 0%, 100%);
-        }
-
-        @media (max-width: 430px) {
-            .main_text {
-                font-size: clamp(1rem, 5.5vw, 1.5rem);
-            }
-        }
-
-        @media (max-width: 380px) {
-            .main_text {
-                font-size: clamp(1rem, 5vw, 1.5rem);
-            }
-        }
-
-        .main_text_decore_1 {
-            position: absolute;
-            width: 100%;
-            /* white-space: nowrap; */
-            top: 0;
-            right: 50%;
-            color: hsl(5, 0%, 0%);
-            transform: translateX(50%) scaleY(0.8) scaleX(0.985);
-            /* transform: translateY(-60); */
-        }
-
-        .main_text_decore_2 {
-            position: absolute;
-            width: 100%;
-            top: 0;
-            right: 50%;
-            color: hsl(5, 0%, 35%);
-            transform: translateY(50%) scaleY(0.5) translateX(50%) scaleX(0.985);;
-            /* transform: translateY(-60); */
-        }
-
-
-        .background {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            margin-top: 1rem;
-        }
-
-
-    </style>
+<style>
+  .background {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin-top: 1rem;
+    transition:
+      filter 600ms ease,
+      -webkit-filter 600ms ease;
+    /* optional hint for the browser */
+    will-change: filter;
+    animation: Monochromate 0.3s ease-in-out 1.5s;
+  }
+  @keyframes Monochromate {
+    0% {
+      filter: none;
+    }
+    50% {
+      filter: grayscale(100%) saturate(0%) contrast(1.02) brightness(0.98);
+    }
+    100% {
+      filter: none;
+    }
+  }
+</style>
