@@ -1,25 +1,87 @@
 <header class="header">
-    <h1>
-        Mykhailo Hrebennyk \\ Internet Hero \\
-    </h1>
-    <button class="respectButton">
-        <a href="#">
-            Why respect ME
-        </a>
-    </button>
+  <h1>Mykhailo Hrebennyk \\ Internet Hero \\</h1>
+  <button class="respectButton">
+    <div class="respectButtonDecorations">
+      <div class="respectButtonDecorationsAnimator">
+        <div class="respectButtonDecoration"></div>
+        <div class="respectButtonDecoration"></div>
+      </div>
+    </div>
+
+    <a href="#"> Why respect ME </a>
+  </button>
 </header>
 
 <style>
-.header {
-        background-color: hsl(7, 51%, 84%);
-        padding-bottom: 0.5rem;
+  .header {
+    background-color: hsl(7, 51%, 84%);
+    padding-bottom: 0.5rem;
+  }
+  .header > h1 {
+    animation: subtleHorizontalShiftMain 6s ease-in-out infinite;
+  }
+  @keyframes slideRight {
+    0%,
+    80% {
+      left: -110%; /* старт за пределами кнопки слева */
     }
-    .respectButton {
-        display: block;
-        background-color: hsl(299, 79%, 84%);
-        padding-inline: 2rem;
-        padding-block: 1rem;
-        margin-inline: auto;
-        box-shadow: 0.5rem 0.5rem 10px hsl(299, 79%, 84%);
+    100% {
+      left: 100%; /* уходит за пределы справа */
     }
+  }
+  .respectButtonDecorations {
+    position: absolute;
+    inset: -5px;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 2%, 2% 2%, 2% 98%, 0% 100%);
+    pointer-events: none;
+  }
+  .respectButtonDecoration {
+    transform: rotate(15deg);
+    background-color: red;
+    height: 100%;
+    width: 3rem;
+  }
+  .respectButtonDecorationsAnimator {
+    display: flex;
+    justify-content: space-between;
+    height: 200%;
+    width: 100%;
+    position: absolute;
+    left: 0%;
+    top: -50%;
+    animation: slideRight 10s ease-in -5s infinite;
+  }
+
+  @keyframes subtleHorizontalShiftMain {
+    0% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-0.3px);
+    }
+    50% {
+      transform: translateX(0.3px);
+    }
+    75% {
+      transform: translateX(-0.2px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  .respectButton > a {
+    position: relative;
+    z-index: 2;
+    mix-blend-mode: multiply;
+  }
+  .respectButton {
+    position: relative;
+    /* overflow: clip; */
+    display: block;
+    background-color: hsl(299, 79%, 84%);
+    padding-inline: 2rem;
+    padding-block: 1rem;
+    margin-inline: auto;
+    box-shadow: 0.5rem 0.5rem 10px hsl(299, 79%, 84%);
+  }
 </style>
