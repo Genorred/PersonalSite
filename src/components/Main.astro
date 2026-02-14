@@ -1,5 +1,6 @@
 ---
 import AnimeList from "./AnimeList.astro";
+import ImportantFacts from "./ImportantFacts.astro";
 ---
 
 <div class="main_wrapper">
@@ -14,12 +15,21 @@ import AnimeList from "./AnimeList.astro";
       </span>
     </div>
   </main>
-  <AnimeList />
+  <div class="content">
+    <ImportantFacts />
+    <AnimeList />
+  </div>
 </div>
 
 <style>
   h2 {
     margin-block: 0;
+  }
+  .content {
+    padding-inline: 2rem;
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 100vh;
   }
 
   /* .main-upper { */
@@ -31,16 +41,21 @@ import AnimeList from "./AnimeList.astro";
     position: relative;
     flex: 1;
     margin-top: 1rem;
-    background: linear-gradient(
-      180deg,
-      #ffffff 0%,
-      /* #e0e0e1.50%, */ /* #808081.50%, */ #000000 100px
-    );
+      background-color: black;
+    /* background: linear-gradient( */
+    /*   180deg, */
+    /*   #ffffff 0%, */
+    /*   /* #e0e0e1.50%, */ /* #808081.50%, */ #000000 100px */
+    /* ); */
   }
 
   .main {
-    height: 270px;
-    margin-inline: 0.5rem;
+    position: sticky;
+    z-index: 20;
+    top: 0;
+    height: 100px;
+
+    /* margin-inline: 0.5rem; */
     background: linear-gradient(
       180deg,
       #ffffff 0%,

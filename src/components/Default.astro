@@ -13,13 +13,14 @@ import Main from "./Main.astro";
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
     transition:
       filter 600ms ease,
       -webkit-filter 600ms ease;
     /* optional hint for the browser */
     will-change: filter;
     animation: Monochromate 0.3s ease-in-out 1.5s;
+    /* filter: grayscale(100%) saturate(0%) contrast(0.5) brightness(0.98); */
   }
   @keyframes Monochromate {
     0% {
