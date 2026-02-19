@@ -7,9 +7,26 @@
   <div class="movingBlock"></div>
   <div class="movingBlock"></div>
   <div class="movingBlock"></div>
+  <a href="https://myanimelist.net/profile/Genorred" target="_blank">
+    <img
+      class="animeListImage"
+      src="https://cdn.myanimelist.net/s/common/userimages/98aaaf13-cd83-406e-995e-1b42e9d8367f_225w?s=343f546e6e23fc3333f2b8dacd34f572"
+    />
+  </a>
 </div>
 
 <style>
+  .animeListImage {
+    position: absolute;
+    top: 50%; /* position inside the parent */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%; /* optional: fill parent width */
+    height: 80%; /* optional: fill parent height */
+    object-fit: cover; /* keeps image proportions */
+    z-index: 40;
+    mix-blend-mode: multiply;
+  }
   @keyframes animeListAppear {
     0% {
       background-color: transparent;
@@ -30,7 +47,7 @@
     }
   }
   .absoluteAnimeList {
-    margin-top: 1rem;
+    margin-top: 2rem;
     /* position: absolute; */
     /* top: 50px; */
     /* right: 100px; */
