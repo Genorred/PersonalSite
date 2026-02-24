@@ -1,18 +1,33 @@
 <header class="header">
   <h1>Genorred \\ Internet Hero \\</h1>
-  <button class="respectButton">
-    <div class="respectButtonDecorations">
-      <div class="respectButtonDecorationsAnimator">
-        <div class="respectButtonDecoration"></div>
-        <div class="respectButtonDecoration"></div>
+  <div class="respectButtonWrap">
+    <!-- <button class="respectButton"> -->
+    <!--   <div class="respectButtonDecorations"> -->
+    <!--     <div class="respectButtonDecorationsAnimator"> -->
+    <!--       <div class="respectButtonDecoration"></div> -->
+    <!--       <div class="respectButtonDecoration"></div> -->
+    <!--     </div> -->
+    <!--   </div> -->
+    <!--   <a href="/why-respect"> Why respect ME </a> -->
+    <!-- </button> -->
+    <a href="/why-respect" class="respectButton">
+      <div class="respectButtonDecorations">
+        <div class="respectButtonDecorationsAnimator">
+          <div class="respectButtonDecoration"></div>
+          <div class="respectButtonDecoration"></div>
+        </div>
       </div>
-    </div>
 
-    <a href="/why-respect"> Why respect ME </a>
-  </button>
+      <span>Why respect ME</span>
+    </a>
+  </div>
 </header>
 
 <style>
+  .respectButtonWrap {
+    display: flex;
+    justify-content: center;
+  }
   .header {
     background-color: var(--header-style-primaty);
     padding-bottom: 0.5rem;
@@ -70,19 +85,43 @@
       transform: translateX(0);
     }
   }
-  .respectButton > a {
-    position: relative;
-    z-index: 2;
-    mix-blend-mode: multiply;
-  }
+  /* .respectButton > span { */
+  /*   position: relative; */
+  /*   z-index: 2; */
+  /*   mix-blend-mode: multiply; */
+  /* } */
   .respectButton {
+    display: inline-flex;
+    margin-block: auto;
+    align-items: center;
+    justify-content: center;
+
+    padding: 1rem 2rem;
+
+    background: transparent;
+    border: 2px solid var(--purple);
+    /* color: var(--purple); */
+
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+
     position: relative;
-    /* overflow: clip; */
-    display: block;
-    background-color: var(--purple);
-    padding-inline: 2rem;
-    padding-block: 1rem;
-    margin-inline: auto;
-    box-shadow: 0.5rem 0.5rem 10px var(--purple);
+    transition:
+      background-color 0.25s ease,
+      color 0.25s ease,
+      box-shadow 0.25s ease,
+      transform 0.1s ease;
+  }
+  .respectButton:hover {
+    background: var(--purple);
+    /* color: white; */
+  }
+  .respectButton:active {
+    transform: translateY(2px);
+  }
+  .respectButton:focus-visible {
+    outline: 3px solid rgba(128, 0, 255, 0.6);
+    outline-offset: 4px;
   }
 </style>
