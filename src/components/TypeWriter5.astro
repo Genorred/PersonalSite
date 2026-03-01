@@ -1,20 +1,36 @@
-<div class="split-appear">
-  <h1 aria-hidden="true">
-    <span class="split-left">
-      <span class="inner inner-right">АХАХАХАХАХАХАХА</span>
-    </span>
-    <span class="separater"></span>
-    <span class="split-right">
-      <span class="inner inner-left">АХАХАХАХАХАХАХА</span>
-    </span>
-    <!-- accessible copy for screen readers -->
-    <span class="visually-hidden">АХАХАХАХАХАХАХ</span>
-  </h1>
+<div>
+  <div class="split-appear trail">
+    <h1 aria-hidden="true">
+      <span class="split-left">
+        <span class="inner inner-right">АХАХАХАХАХА</span>
+      </span>
+      <span class="separater"></span>
+      <span class="split-right">
+        <span class="inner inner-left">АХАХАХАХАХА</span>
+      </span>
+      <span class="visually-hidden">АХАХАХАХАХ</span>
+    </h1>
+  </div>
+
+  <div class="split-appear main">
+    <h1 aria-hidden="true">
+      <span class="split-left">
+        <span class="inner inner-right">АХАХАХАХАХА</span>
+      </span>
+      <span class="separater"></span>
+      <span class="split-right">
+        <span class="inner inner-left">АХАХАХАХАХА</span>
+      </span>
+      <span class="visually-hidden">АХАХАХАХАХ</span>
+    </h1>
+  </div>
 </div>
 
 <style>
   /* layout */
   /* layout */
+  /* layout */
+
   .split-appear {
     width: 100vw;
     position: absolute;
@@ -22,24 +38,41 @@
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
-    overflow: hidden; /* ← prevents early overflow during reveal */
+    overflow: hidden;
+    --delay: 0s;
+    --fs: 6rem;
   }
+
+  .main {
+    --delay: 0s;
+    z-index: 2;
+  }
+
+  .trail {
+    --delay: 0.4s;
+    opacity: 0.25;
+    z-index: 1;
+    filter: blur(1px);
+  }
+
   .separater {
     min-width: 56rem;
     padding: 2rem;
     display: inline-block;
   }
+
   .split-appear h1 {
     display: flex;
     justify-content: space-between;
     position: relative;
     margin: 0;
     font-family: monospace;
-    font-size: 6rem;
+    font-size: var(--fs);
     color: white;
     white-space: nowrap;
     line-height: 1;
   }
+
   /* common */
   .split-left,
   .split-right {
@@ -47,37 +80,45 @@
     overflow: hidden;
     white-space: nowrap;
     pointer-events: none;
-    will-change: width, transform; /* better animation perf */
+    will-change: width, transform, top, left, font-size;
   }
+
   .split-left {
     margin-right: auto;
     text-align: left;
+    position: relative;
   }
+
   .split-right {
+    position: relative;
   }
+
   .inner {
     display: inline-block;
     white-space: nowrap;
   }
-  /* ───────────────────────────────────────
-   Phase 1: Reveal (0–3 seconds)
-   Phase 2: Infinite slide apart (starts at 3s)
-──────────────────────────────────────── */
+
+  /* ─── Reveal ──────────────────────────────────────── */
   .split-left {
     width: 0;
-    animation: reveal-left 0.5s 1.5s steps(30, end) forwards;
+    animation: reveal-left 0.5s calc(1s + var(--delay)) steps(30, end) forwards;
   }
+
   .split-right {
     width: 0;
-    animation: reveal-right 0.5s 1.5s linear forwards;
+    animation: reveal-right 0.5s calc(1s + var(--delay)) linear forwards;
   }
+
   .inner-left {
-    animation: scroll-left 0.1s 1.7s linear infinite;
+    animation: scroll-left 0.15s calc(1.2s + var(--delay)) linear infinite;
   }
+
   .inner-right {
     text-align: right;
-    animation: scroll-right 0.1s 1.7s steps(30, end) infinite;
+    animation: scroll-right 0.15s calc(1.2s + var(--delay)) steps(30, end)
+      infinite;
   }
+
   @keyframes reveal-left {
     from {
       width: 0;
@@ -94,7 +135,7 @@
       width: 100%;
     }
   }
-  /* After reveal → seamless infinite scrolling for slide apart */
+
   @keyframes scroll-left {
     from {
       transform: translateX(0);
@@ -111,6 +152,120 @@
       transform: translateX(0%);
     }
   }
+
+  /* ─── Container subtle overall movement ───────────── */
+  .split-appear {
+    animation: container-bob 6s calc(1.7s + var(--delay)) ease-in-out infinite;
+  }
+
+  @keyframes container-bob {
+    0%,
+    100% {
+      transform: translateX(-50%) translateY(0);
+    }
+    50% {
+      transform: translateX(-50%) translateY(-1.5rem);
+    }
+  }
+
+  /* ─── Left half unique crazy dance ────────────────── */
+  .split-left {
+    animation:
+      reveal-left 0.5s calc(1s + var(--delay)) steps(30, end) forwards,
+      left-dance 4.8s calc(2s + var(--delay)) steps(6, end) infinite;
+  }
+
+  @keyframes left-dance {
+    0% {
+      top: 0;
+      left: 0;
+      --fs: 6rem;
+      opacity: 1;
+    }
+    16% {
+      top: -3rem;
+      left: -4rem;
+      --fs: 8.5rem;
+      opacity: 1;
+    }
+    33% {
+      top: -1rem;
+      left: 2rem;
+      --fs: 7rem;
+      opacity: 1;
+    }
+    50% {
+      top: 4rem;
+      left: -1rem;
+      --fs: 6.5rem;
+      opacity: 1;
+    }
+    66% {
+      top: -2rem;
+      left: 3rem;
+      --fs: 9rem;
+      opacity: 1;
+    }
+    83% {
+      top: 2rem;
+      left: -5rem;
+      --fs: 7.5rem;
+      opacity: 0.3;
+    }
+    100% {
+      top: 0;
+      left: 0;
+      --fs: 6rem;
+      opacity: 1;
+    }
+  }
+
+  /* ─── Right half different crazy dance ────────────── */
+  .split-right {
+    animation:
+      reveal-right 0.5s calc(1s + var(--delay)) linear forwards,
+      right-dance 5.2s calc(2.1s + var(--delay)) steps(6, end) infinite;
+  }
+
+  @keyframes right-dance {
+    0% {
+      top: 0;
+      left: 0;
+      --fs: 6rem;
+      opacity: 1;
+    }
+    20% {
+      top: -4rem;
+      left: 5rem;
+      --fs: 8rem;
+      opacity: 1;
+    }
+    40% {
+      top: 3rem;
+      left: -2rem;
+      --fs: 9.5rem;
+      opacity: 1;
+    }
+    60% {
+      top: -2rem;
+      left: 4rem;
+      --fs: 7rem;
+      opacity: 1;
+    }
+    80% {
+      top: 5rem;
+      left: -3rem;
+      --fs: 6rem;
+      opacity: 0.4;
+    }
+    100% {
+      top: 0;
+      left: 0;
+      --fs: 6rem;
+      opacity: 1;
+    }
+  }
+
   /* Screen reader only */
   .visually-hidden {
     position: absolute !important;

@@ -18,10 +18,38 @@ import Harumasu from "../assets/harumasu.jpg";
     <TypeWriter3 />
     <TypeWriter4 />
     <TypeWriter5 />
+    <div class="insideShock">
+      <TypeWriter5 />
+    </div>
+    <div class="insideShockRight">
+      <TypeWriter5 />
+    </div>
   </div>
 </Layout>
 
 <style>
+  .insideShockRight {
+    position: absolute;
+    top: 10%;
+    left: 40%;
+    right: 10%;
+    opacity: 0;
+    animation: appear 1s 3s ease-in-out forwards;
+  }
+  .insideShock {
+    position: absolute;
+    inset: 20%;
+    opacity: 0;
+    animation: appear 1s 3s ease-in-out forwards;
+  }
+  @keyframes appear {
+    from: {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
   .respectBackground {
     position: relative;
     overflow: clip;
