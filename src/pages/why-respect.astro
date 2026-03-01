@@ -1,6 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
-
+import JsMaster from "../components/JsMaster.astro";
+import TypeWriter2 from "../components/TypeWriter2.astro";
+import TypeWriter3 from "../components/TypeWriter3.astro";
+import TypeWriter4 from "../components/TypeWriter4.astro";
+import TypeWriter5 from "../components/TypeWriter5.astro";
 import background from "../assets/background.svg";
 import Harumasu from "../assets/harumasu.jpg";
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
@@ -9,167 +13,17 @@ import Harumasu from "../assets/harumasu.jpg";
 
 <Layout>
   <div class="respectBackground">
-    <div class="respectContainer">
-      <img class="backgroundGhoul" src="/Dead_inside.webp" />
-      <section class="namesTab">
-        <div>
-          <h1>Mykhailo H ✨</h1>
-          <h2>Fullstack developer 👨‍💻</h2>
-          <p>📍 Odessa, Ukraine</p>
-          <p>✉️ gmihasik@gmail.com</p>
-          <p>🌟 GitHub</p>
-        </div>
-        <img class="avatar" src="/harumasu.jpg" />
-      </section>
-      <section class="generalInfo">
-        🚀 I am Mykhailo 17 years old Fullstack developer with 1 year of
-        experience using modern technologies to do the work as efficiently and
-        productively as possible, trying to select best architectural solutions
-        to meet needs and optimize resources. It is important for me to find the
-        most accurate solutions for the tasks set, for which I am always
-        striving to learn new horizons.
-      </section>
-      <section>
-        <div class="tech-stack">
-          <h2>💻 Tech Stack</h2>
-
-          <div class="section">
-            <h3>🖥 Frontend</h3>
-            <p>Data Libraries:</p>
-            <div class="tags">React Query Redux GraphQL tRPC</div>
-            <p>UI Libraries & Frameworks:</p>
-            <div class="tags">
-              React Next.js Astro Radix UI TailwindCSS SASS HTML5 CSS3
-            </div>
-          </div>
-
-          <div class="section">
-            <h3>🔙 Backend</h3>
-            <div class="tags">Node.js Express.js NestJS tRPC JWT Nodemon</div>
-          </div>
-
-          <div class="section">
-            <h3>🗄 Databases & Messaging</h3>
-            <div class="tags">
-              MongoDB Prisma Sequelize Redis Supabase Firebase Elasticsearch
-              RabbitMQ
-            </div>
-          </div>
-
-          <div class="section">
-            <h3>🌐 Deployment & Infra</h3>
-            <div class="tags">Vercel Netlify Google Cloud Nginx Docker</div>
-          </div>
-
-          <div class="section">
-            <h3>🛠 IDEs & Tools</h3>
-            <div class="tags">
-              WebStorm • Vim • CursorAI Git GitHub Postman Prettier PNPM NPM
-              Vite Figma
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+    <JsMaster />
+    <TypeWriter2 />
+    <TypeWriter3 />
+    <TypeWriter4 />
+    <TypeWriter5 />
   </div>
 </Layout>
 
 <style>
-  .backgroundGhoul {
-    position: absolute;
-    /* right: -13%; */
-    left: 50%;
-    transform: translate(-50%);
-    opacity: 0.1;
-    -webkit-mask-image: url("/paper-mask.png");
-    mask-image: url("/paper-mask.png");
-
-    -webkit-mask-size: cover;
-    mask-size: cover;
-
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-  }
-  .tech-stack {
-    font-family: Arial, sans-serif;
-    color: #888;
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 1rem;
-    background-color: rgba(173, 216, 230, 0.1); /* lightblue transparent */
-    border-radius: 10px;
-  }
-
-  .tech-stack h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: #4b0082; /* purple-ish */
-  }
-
-  .section {
-    margin-bottom: 1.5rem;
-  }
-
-  .section h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: #6a0dad;
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .tags span {
-    background-color: #e0e7ff; /* light purple/blue */
-    color: #4b0082;
-    padding: 0.3rem 0.6rem;
-    border-radius: 9999px; /* pill shape */
-    font-size: 0.9rem;
-  }
-  .generalInfo {
-    background-color: rgba(173, 216, 230, 0.8);
-    border-radius: 2px;
-    padding: 1rem;
-  }
-  .namesTab {
-    display: flex;
-    justify-content: space-between;
-    -webkit-text-stroke: 2px white;
-    font-size: 20px;
-  }
-  .respectContainer {
-    position: relative;
-    justify-items: center;
-    padding: 2rem;
-    max-width: 56rem;
-    width: 100vw;
-    background-color: oklch(0.145 0 0);
-    background-image: radial-gradient(
-      ellipse 80% 80% at 50% -20%,
-      rgba(120, 119, 198, 0.3),
-      rgba(255, 255, 255, 0)
-    );
-  }
-  .avatar {
-    width: 12rem; /* w-48 → 48 * 0.25rem = 12rem */
-    height: 12rem; /* w-48 → 48 * 0.25rem = 12rem */
-    border-radius: 9999px; /* rounded-full */
-    position: relative; /* relative */
-    box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.5); /* ring-2 + ring-purple-500/50 */
-    object-fit: contain;
-  }
-
-  /* Responsive for md:w-60 (min-width: 768px) */
-  @media (min-width: 768px) {
-    .avatar {
-      width: 15rem; /* w-60 → 60 * 0.25rem = 15rem */
-      height: 15rem; /* w-60 → 60 * 0.25rem = 15rem */
-    }
-  }
   .respectBackground {
+    position: relative;
     overflow: clip;
     display: flex;
     justify-content: center;
