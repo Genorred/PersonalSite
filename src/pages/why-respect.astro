@@ -14,6 +14,9 @@ import Harumasu from "../assets/harumasu.jpg";
 <Layout>
   <div class="respectBackground">
     <JsMaster />
+    <div class="jsMasterDoubleEffect" id="double-effect">
+      <JsMaster />
+    </div>
     <TypeWriter2 />
     <TypeWriter3 />
     <TypeWriter4 />
@@ -26,8 +29,25 @@ import Harumasu from "../assets/harumasu.jpg";
     </div>
   </div>
 </Layout>
+<script>
+  // This script runs in the browser
+  const element = document.getElementById("double-effect");
 
+  if (element) {
+    setTimeout(() => {
+      element.style.display = "block";
+
+      setTimeout(() => {
+        element.style.display = "none";
+      }, 1000); // match your animation duration
+    }, 3000); // match your animation duration
+  }
+</script>
 <style>
+  .jsMasterDoubleEffect {
+    display: none;
+  }
+
   .insideShockRight {
     position: absolute;
     top: 10%;
