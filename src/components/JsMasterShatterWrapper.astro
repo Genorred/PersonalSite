@@ -13,9 +13,10 @@ import JsMaster from "./JsMaster.astro";
   </div>
 </div>
 <style>
+  /* глубина зубцов */
   :root {
-    /* глубина зубцов */
-    --inset: 50%;
+    --inset: 80%;
+    --diff: 10%;
   }
   .shatter-wrapper {
     background-color: orange;
@@ -35,118 +36,119 @@ import JsMaster from "./JsMaster.astro";
     position: absolute;
     top: 0;
   }
-  .shatter-left {
-    left: 0%;
-    /* left: -1%; */
-    -webkit-clip-path: polygon(
-      0 0,
-      100% 0,
-      100% 100%,
-      0 100%,
-
-      0 94%,
-      var(--inset) 88%,
-      0 82%,
-      var(--inset) 76%,
-      0 70%,
-      var(--inset) 64%,
-      0 58%,
-      var(--inset) 52%,
-      0 46%,
-      var(--inset) 40%,
-      0 34%,
-      var(--inset) 28%,
-      0 22%,
-      var(--inset) 16%,
-      0 10%,
-      var(--inset) 4%,
-      0 0
-    );
+  /* Правильная правая половина — y-шаги: 4%,10%,16%...88%,94% */
+  .shatter-right {
+    --x: var(--inset);
+    --left-x: max(0%, calc(var(--inset) - var(--diff)));
+    left: 1px;
 
     clip-path: polygon(
-      0 0,
-      100% 0,
-      100% 100%,
-      0 100%,
+      /* верхняя кромка */ 0 0,
+      var(--left-x) 0,
 
-      0 94%,
-      var(--inset) 88%,
-      0 82%,
-      var(--inset) 76%,
-      0 70%,
-      var(--inset) 64%,
-      0 58%,
-      var(--inset) 52%,
-      0 46%,
-      var(--inset) 40%,
-      0 34%,
-      var(--inset) 28%,
-      0 22%,
-      var(--inset) 16%,
-      0 10%,
-      var(--inset) 4%,
-      0 0
+      /* зубцы — используем те же y-координаты, что и в левой половине */
+      var(--x) 4%,
+      var(--left-x) 10%,
+
+      var(--x) 16%,
+      var(--left-x) 22%,
+
+      var(--x) 28%,
+      var(--left-x) 34%,
+
+      var(--x) 40%,
+      var(--left-x) 46%,
+
+      var(--x) 52%,
+      var(--left-x) 58%,
+
+      var(--x) 64%,
+      var(--left-x) 70%,
+
+      var(--x) 76%,
+      var(--left-x) 82%,
+
+      var(--x) 88%,
+      var(--left-x) 94%,
+
+      /* низ */ 100% 100%,
+      0 100%
     );
   }
-  .shatter-right {
+
+  /* Левая половина — те же y-шаги, но зеркально (идём сверху вниз к низу) */
+  .shatter-left {
+    --x: var(--inset);
+    --left-x: max(0%, calc(var(--inset) - var(--diff)));
     left: 0;
-    -webkit-clip-path: polygon(
-      0 0,
-      100% 0,
-      var(--inset) 6%,
-      100% 12%,
-      var(--inset) 18%,
-      100% 24%,
-      var(--inset) 30%,
-      100% 36%,
-      var(--inset) 42%,
-      100% 48%,
-      var(--inset) 54%,
-      100% 60%,
-      var(--inset) 66%,
-      100% 72%,
-      var(--inset) 78%,
-      100% 84%,
-      var(--inset) 90%,
-      100% 100%,
-      0 100%
-    );
+
     clip-path: polygon(
-      0 0,
+      /* верх/правый край */ 0 0,
       100% 0,
-      var(--inset) 6%,
-      100% 12%,
-      var(--inset) 18%,
-      100% 24%,
-      var(--inset) 30%,
-      100% 36%,
-      var(--inset) 42%,
-      100% 48%,
-      var(--inset) 54%,
-      100% 60%,
-      var(--inset) 66%,
-      100% 72%,
-      var(--inset) 78%,
-      100% 84%,
-      var(--inset) 90%,
       100% 100%,
-      0 100%
+      0 100%,
+
+      /* зубцы — зеркальное перечисление тех же y-координат (от низа к верху или в порядке,
+       обеспечивающем корректное замыкание полигона) */
+      var(--left-x) 94%,
+      var(--x) 88%,
+
+      var(--left-x) 82%,
+      var(--x) 76%,
+
+      var(--left-x) 70%,
+      var(--x) 64%,
+
+      var(--left-x) 58%,
+      var(--x) 52%,
+
+      var(--left-x) 46%,
+      var(--x) 40%,
+
+      var(--left-x) 34%,
+      var(--x) 28%,
+
+      var(--left-x) 22%,
+      var(--x) 16%,
+
+      var(--left-x) 10%,
+      var(--x) 4%,
+
+      /* завершающая точка (на верхней линии) */ var(--left-x) 0
     );
+
+    perspective-origin: 100% 50%;
+    animation: slideLeft 1s 2s ease-out;
   }
   .shatterRightWrapper {
-    animation: slide 1s 2s steps(2, end);
+    perspective-origin: -100% 50%;
+    animation: slide 1s 2s ease-out;
     left: 0;
     position: absolute;
     top: 0;
   }
+  @keyframes slideLeft {
+    from {
+      left: 5%;
+      transform: perspective(5000px) rotate3d(0, 1, 0, -30deg);
+      /* filter: drop-shadow(1px 0px 0px white); */
+    }
+    to {
+      transform: perspective(5000px) rotate3d(0, 1, 0, -45deg);
+      left: 20%;
+      /* filter: drop-shadow(1px 0px 0px white); */
+    }
+  }
   @keyframes slide {
     from {
       left: -1%;
-      filter: drop-shadow(6px 6px 8px rgba(0, 0, 0, 0.4));
+      transform: perspective(2500px) rotate3d(0, 1, 0, 5deg);
+      /* filter: drop-shadow(1px 0px 0px white); */
     }
     to {
+      transform: perspective(2500px) rotate3d(0, 1, 0, 10deg);
       left: -1%;
-      filter: drop-shadow(6px 6px 8px rgba(0, 0, 0, 0.4));
+      /* filter: drop-shadow(1px 0px 0px white); */
     }
   }
 </style>
