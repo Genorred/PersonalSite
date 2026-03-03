@@ -1,0 +1,152 @@
+---
+import JsMaster from "./JsMaster.astro";
+---
+
+<div class="shatter-wrapper">
+  <div class="shatter shatter-left">
+    <JsMaster />
+  </div>
+  <div class="shatterRightWrapper">
+    <div class="shatter shatter-right">
+      <JsMaster />
+    </div>
+  </div>
+</div>
+<style>
+  :root {
+    /* глубина зубцов */
+    --inset: 50%;
+  }
+  .shatter-wrapper {
+    background-color: orange;
+    position: relative;
+    justify-items: center;
+    padding: 2rem;
+    max-width: 56rem;
+    width: 100vw;
+    /* background-color: oklch(0.145 0 0); */
+    /* background-image: radial-gradient( */
+    /*   ellipse 80% 80% at 50% -20%, */
+    /*   rgba(120, 119, 198, 0.3), */
+    /*   rgba(255, 255, 255, 0) */
+    /* ); */
+  }
+  .shatter {
+    position: absolute;
+    top: 0;
+  }
+  .shatter-left {
+    left: 0%;
+    /* left: -1%; */
+    -webkit-clip-path: polygon(
+      0 0,
+      100% 0,
+      100% 100%,
+      0 100%,
+
+      0 94%,
+      var(--inset) 88%,
+      0 82%,
+      var(--inset) 76%,
+      0 70%,
+      var(--inset) 64%,
+      0 58%,
+      var(--inset) 52%,
+      0 46%,
+      var(--inset) 40%,
+      0 34%,
+      var(--inset) 28%,
+      0 22%,
+      var(--inset) 16%,
+      0 10%,
+      var(--inset) 4%,
+      0 0
+    );
+
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% 100%,
+      0 100%,
+
+      0 94%,
+      var(--inset) 88%,
+      0 82%,
+      var(--inset) 76%,
+      0 70%,
+      var(--inset) 64%,
+      0 58%,
+      var(--inset) 52%,
+      0 46%,
+      var(--inset) 40%,
+      0 34%,
+      var(--inset) 28%,
+      0 22%,
+      var(--inset) 16%,
+      0 10%,
+      var(--inset) 4%,
+      0 0
+    );
+  }
+  .shatter-right {
+    left: 0;
+    -webkit-clip-path: polygon(
+      0 0,
+      100% 0,
+      var(--inset) 6%,
+      100% 12%,
+      var(--inset) 18%,
+      100% 24%,
+      var(--inset) 30%,
+      100% 36%,
+      var(--inset) 42%,
+      100% 48%,
+      var(--inset) 54%,
+      100% 60%,
+      var(--inset) 66%,
+      100% 72%,
+      var(--inset) 78%,
+      100% 84%,
+      var(--inset) 90%,
+      100% 100%,
+      0 100%
+    );
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      var(--inset) 6%,
+      100% 12%,
+      var(--inset) 18%,
+      100% 24%,
+      var(--inset) 30%,
+      100% 36%,
+      var(--inset) 42%,
+      100% 48%,
+      var(--inset) 54%,
+      100% 60%,
+      var(--inset) 66%,
+      100% 72%,
+      var(--inset) 78%,
+      100% 84%,
+      var(--inset) 90%,
+      100% 100%,
+      0 100%
+    );
+  }
+  .shatterRightWrapper {
+    animation: slide 1s 2s steps(2, end);
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
+  @keyframes slide {
+    from {
+      left: -1%;
+      filter: drop-shadow(6px 6px 8px rgba(0, 0, 0, 0.4));
+    }
+    to {
+      left: -1%;
+      filter: drop-shadow(6px 6px 8px rgba(0, 0, 0, 0.4));
+    }
+  }
+</style>

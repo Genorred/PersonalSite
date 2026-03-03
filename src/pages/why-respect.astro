@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import JsMaster from "../components/JsMaster.astro";
+import JsMasterWrapper from "../components/JsMasterShatterWrapper.astro";
 import TypeWriter2 from "../components/TypeWriter2.astro";
 import TypeWriter3 from "../components/TypeWriter3.astro";
 import TypeWriter4 from "../components/TypeWriter4.astro";
@@ -13,9 +13,9 @@ import Harumasu from "../assets/harumasu.jpg";
 
 <Layout>
   <div class="respectBackground">
-    <JsMaster />
+    <JsMasterWrapper />
     <div class="jsMasterDoubleEffect" id="double-effect">
-      <JsMaster />
+      <JsMasterWrapper />
     </div>
     <TypeWriter2 />
     <TypeWriter3 />
@@ -77,5 +77,6 @@ import Harumasu from "../assets/harumasu.jpg";
     justify-content: center;
     min-height: 100vh;
     background-color: var(--header-style-primaty);
+    /* background-color: orange; */
   }
 </style>
