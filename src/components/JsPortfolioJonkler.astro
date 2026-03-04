@@ -1,0 +1,79 @@
+---
+import JsMasterWrapper from "../components/JsMasterShatterWrapper.astro";
+import TypeWriter2 from "../components/TypeWriter2.astro";
+import TypeWriter3 from "../components/TypeWriter3.astro";
+import TypeWriter4 from "../components/TypeWriter4.astro";
+import TypeWriter5 from "../components/TypeWriter5.astro";
+import WhySoSerious from "../components/WhySoSerious.astro";
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<div class="respectBackground">
+  <JsMasterWrapper />
+  <div class="jsMasterDoubleEffect" id="double-effect">
+    <JsMasterWrapper />
+  </div>
+  <TypeWriter2 />
+  <TypeWriter3 />
+  <TypeWriter4 />
+  <TypeWriter5 />
+  <div class="insideShock">
+    <TypeWriter5 />
+  </div>
+  <div class="insideShockRight">
+    <TypeWriter5 />
+  </div>
+  <WhySoSerious />
+</div>
+<script>
+  // This script runs in the browser
+  const element = document.getElementById("double-effect");
+
+  if (element) {
+    setTimeout(() => {
+      element.style.display = "block";
+
+      setTimeout(() => {
+        element.style.display = "none";
+      }, 500); // match your animation duration
+    }, 2400); // match your animation duration
+  }
+</script>
+<style>
+  .jsMasterDoubleEffect {
+    display: none;
+  }
+
+  .insideShockRight {
+    position: absolute;
+    top: 10%;
+    left: 40%;
+    right: 10%;
+    opacity: 0;
+    animation: appear 1s 3s ease-in-out forwards;
+  }
+  .insideShock {
+    position: absolute;
+    inset: 20%;
+    opacity: 0;
+    animation: appear 1s 3s ease-in-out forwards;
+  }
+  @keyframes appear {
+    from: {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .respectBackground {
+    position: relative;
+    overflow: clip;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: var(--header-style-primaty);
+    /* background-color: orange; */
+  }
+</style>
