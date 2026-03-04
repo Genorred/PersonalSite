@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 
 import JsPortfolioJonkler from "../components/JsPortfolioJonkler.astro";
+import RealPortfolio from "../components/RealPortfolio.astro";
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
@@ -10,8 +11,8 @@ import JsPortfolioJonkler from "../components/JsPortfolioJonkler.astro";
   <div id="JsPortfolioJonkler">
     <JsPortfolioJonkler />
   </div>
-  <div id="RealPortfolio" class="realPortfolio">
-    <JsPortfolioJonkler />
+  <div id="RealPortfolio">
+    <RealPortfolio />
   </div>
 </Layout>
 <script>
@@ -22,16 +23,16 @@ import JsPortfolioJonkler from "../components/JsPortfolioJonkler.astro";
   if (jsPortfolioJonkler) {
     setTimeout(() => {
       jsPortfolioJonkler.remove();
-    }, 3500); // match your animation duration
+    }, 3300); // match your animation duration
   }
   if (realPortfolio) {
     setTimeout(() => {
       realPortfolio.style.display = "block";
-    }, 5500); // match your animation duration
+    }, 5350); // match your animation duration
   }
 </script>
 <style>
-  .realPortfolio {
+  #RealPortfolio {
     display: none;
   }
 </style>

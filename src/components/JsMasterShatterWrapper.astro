@@ -3,6 +3,9 @@ import JsMaster from "./JsMaster.astro";
 ---
 
 <div class="shatter-wrapper">
+  <div class="invisibleJsMaster">
+    <JsMaster />
+  </div>
   <div class="shatter shatter-left">
     <JsMaster />
   </div>
@@ -13,6 +16,9 @@ import JsMaster from "./JsMaster.astro";
   </div>
 </div>
 <style>
+  .invisibleJsMaster {
+    opacity: 0;
+  }
   /* глубина зубцов */
   :root {
     --inset: 80%;
@@ -22,7 +28,7 @@ import JsMaster from "./JsMaster.astro";
     background-color: orange;
     position: relative;
     justify-items: center;
-    padding: 2rem;
+    /* padding: 2rem; */
     max-width: 56rem;
     width: 100vw;
     /* background-color: oklch(0.145 0 0); */
