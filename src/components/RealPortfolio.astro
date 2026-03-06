@@ -8,8 +8,8 @@
 
   btn?.addEventListener("click", () => {
     if (buttonVideo && pageDarking) {
-      buttonVideo.style.display = "block";
       pageDarking.style.display = "block";
+      buttonVideo.style.display = "block";
       buttonVideo.currentTime = 0; // Reset to start
       buttonVideo.play().catch((err) => {
         console.error("Video play failed:", err);
@@ -175,13 +175,13 @@
     max-width: 56rem;
     width: 100vw;
     opacity: 0;
-    animation: appear 0.1s 0.5s forwards;
+    animation: appear 0.1s 0.1s forwards;
   }
   .content {
     z-index: 2;
     position: relative;
     opacity: 0;
-    animation: appear 0.1s 0.7s forwards;
+    animation: appear 0.1s 0.3s forwards;
   }
   @keyframes appear {
     from {

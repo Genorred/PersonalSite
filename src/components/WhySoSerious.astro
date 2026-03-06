@@ -10,7 +10,6 @@
     z-index: 10;
     top: 50vh;
     left: 50vw;
-    transform: translate(-50%, -50%);
     width: calc(100vw - 3rem);
     padding: 2rem;
     font-size: 6rem;
@@ -19,20 +18,24 @@
     text-align: center;
   }
   .why {
+    transform: translate(-50%, -50%);
     color: orange;
-    animation: whyAppear 0.5s 2s;
+    animation: whyAppear 1s 2s;
     mix-blend-mode: difference;
   }
   .so {
-    color: orange;
-    animation: whyAppear 0.5s 2.5s;
-    mix-blend-mode: difference;
-  }
-  .serious {
-    color: orange;
-    animation: whyAppear 0.5s 3s;
-    mix-blend-mode: difference;
-  }
+  color: orange;
+  animation: whyAppear 0.5s 2.8s;
+  mix-blend-mode: overlay;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.serious {
+  color: black;
+  animation: whyAppear 0.5s 3.25s;
+  mix-blend-mode: difference;
+  transform: translate(-50%, -50%) scale(1.5);
+}
   @keyframes whyAppear {
     from {
       /* background-color: var(--header-style-primaty); */
