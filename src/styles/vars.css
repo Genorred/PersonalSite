@@ -1,0 +1,10 @@
+:root {
+  --header-style-primaty: hsl(7, 51%, 84%);
+  --primary-color: black;
+  --purple: hsl(300 80% 90.7%);
+  --spacing-md: 16px;
+  --border-radius: 8px;
+  --bg-red: hsl(352 80% 10%);
+  --bg-white: hsl(352 20% 80%);
+  --bg-purple: hsl(300 80% 80%);
+}
