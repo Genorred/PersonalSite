@@ -1,12 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
-
 import JsPortfolioJonkler from "../components/JsPortfolioJonkler.astro";
 import RealPortfolio from "../components/RealPortfolio.astro";
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import WhySoSeriousFinal from "../components/WhySoSeriousFinal.astro";
 ---
-
 <Layout>
   <div id="JsPortfolioJonkler">
     <JsPortfolioJonkler />
@@ -14,25 +11,36 @@ import RealPortfolio from "../components/RealPortfolio.astro";
   <div id="RealPortfolio">
     <RealPortfolio />
   </div>
+  <div id="WhySoSeriousFinal">
+    <WhySoSeriousFinal />
+  </div>
 </Layout>
 <script>
-  // This script runs in the browser
   const jsPortfolioJonkler = document.getElementById("JsPortfolioJonkler");
   const realPortfolio = document.getElementById("RealPortfolio");
+  const whySoSeriousFinal = document.getElementById("WhySoSeriousFinal");
 
   if (jsPortfolioJonkler) {
     setTimeout(() => {
       jsPortfolioJonkler.remove();
-    }, 3500); // match your animation duration
+    }, 3500);
   }
   if (realPortfolio) {
     setTimeout(() => {
       realPortfolio.style.display = "block";
-    }, 4850); // match your animation duration
+    }, 4850);
+  }
+  if (whySoSeriousFinal) {
+    setTimeout(() => {
+      whySoSeriousFinal.style.display = "flex";
+    }, 7500);
   }
 </script>
 <style>
   #RealPortfolio {
+    display: none;
+  }
+  #WhySoSeriousFinal {
     display: none;
   }
 </style>

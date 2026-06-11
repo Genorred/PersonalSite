@@ -1,0 +1,45 @@
+<style>
+  .finalReveal {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      #1a1a1a,
+      #000000
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    animation: revealFinal 1s ease-in-out forwards;
+    z-index: 100;
+  }
+  .finalReveal h1 {
+    color: #fff;
+    font-size: 3rem;
+    text-align: center;
+    animation: pulse 2s infinite;
+  }
+  @keyframes revealFinal {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes pulse {
+    0%, 100% {
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+    50% {
+      text-shadow: 0 0 30px rgba(255, 255, 255, 1);
+    }
+  }
+</style>
+
+<div class="finalReveal">
+  <h1>🌟 The Journey Continues 🌟</h1>
+</div>
