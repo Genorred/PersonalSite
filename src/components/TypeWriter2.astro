@@ -20,9 +20,19 @@
     position: absolute;
     top: 30%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateY(0);
     mix-blend-mode: exclusion;
     z-index: 1;
+    animation: container-bob 6s 1s ease-in-out infinite;
+  }
+
+  @keyframes container-bob {
+    0%, 100% {
+      transform: translateX(-50%) translateY(0);
+    }
+    50% {
+      transform: translateX(-50%) translateY(-1.5rem);
+    }
   }
 
   .split-appear h1 {
