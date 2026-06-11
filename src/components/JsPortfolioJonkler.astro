@@ -75,5 +75,15 @@ import WhySoSerious from "../components/WhySoSerious.astro";
     min-height: 100vh;
     background-color: var(--header-style-primaty);
     /* background-color: orange; */
+    animation: darkening 8s ease-in-out infinite;
+  }
+
+  @keyframes darkening {
+    0%, 100% {
+      background-color: var(--header-style-primaty);
+    }
+    50% {
+      background-color: #1a1a1a;
+    }
   }
 </style>
